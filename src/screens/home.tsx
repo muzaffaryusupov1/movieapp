@@ -1,11 +1,18 @@
-import { Button, Text, View } from "react-native";
+import { MagnifyingGlassIcon } from '@react-native-icons/heroicons/16/solid';
+import { StatusBar } from 'expo-status-bar';
+import { Image, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home({ navigation }: any) {
-
-    return (
-        <View className='flex-1 items-center justify-center bg-neutral-50'>
-            <Text className="text-3xl font-bold">Home Page</Text>
-            <Button title="Go to Detailed" onPress={() => navigation.navigate('Details')} />
+  return (
+    <View className="flex-1 bg-slate-950">
+      <SafeAreaView>
+        <StatusBar style="light" />
+        <View className={''}>
+          <Image source={require('~assets/logo.png')} />
+          <MagnifyingGlassIcon />
         </View>
-    )
+      </SafeAreaView>
+    </View>
+  );
 }
