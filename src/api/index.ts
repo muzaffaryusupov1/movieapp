@@ -1,0 +1,35 @@
+import { api_key } from '@/constants';
+import { apiRequest } from './axios';
+
+const baseUrl: string = 'https://api.themoviedb.org/3';
+
+const trendingMovie: string = `${baseUrl}/trending/movie/day?api_key=${api_key}`;
+const upComingMovie: string = `${baseUrl}/movie/upcoming?api_key=${api_key}`;
+const topRatedMovie: string = `${baseUrl}/movie/top_rated?api_key=${api_key}`;
+const popularMovie: string = `${baseUrl}/movie/popular?api_key=${api_key}`;
+
+export const fetchTrendingMovie = () => {
+  return apiRequest(trendingMovie);
+};
+
+export const fetchUpcomingMovie = () => {
+  return apiRequest(upComingMovie);
+};
+
+export const fetchTopRatedMovie = () => {
+  return apiRequest(topRatedMovie);
+};
+
+export const fetchPopularMovie = () => {
+  return apiRequest(popularMovie);
+};
+
+export const image500 = (posterPath: string): string | null => {
+  return posterPath ? 'https://image.tmdb.org/t/p/w500' + posterPath : null;
+};
+export const image342 = (posterPath: string): string | null => {
+  return posterPath ? 'https://image.tmdb.org/t/p/w342' + posterPath : null;
+};
+export const image185 = (posterPath: string): string | null => {
+  return posterPath ? 'https://image.tmdb.org/t/p/w185' + posterPath : null;
+};

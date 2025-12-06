@@ -1,14 +1,55 @@
+import {
+  fetchPopularMovie,
+  fetchTopRatedMovie,
+  fetchTrendingMovie,
+  fetchUpcomingMovie,
+} from '@/api';
+import TrendingMovie from '@/components/trending-movie';
+import UpcomingMovie from '@/components/upcoming-movie';
 import { MagnifyingGlassIcon } from '@react-native-icons/heroicons/16/solid';
 import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
 import { Image, ScrollView, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home({ navigation }: any) {
+  const [trending, setTrending] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
+  const [topRated, setTopRated] = useState([]);
+  const [popular, setPopular] = useState([]);
+
+  useEffect(() => {
+    getTrendingMovie();
+    getUpcomingMovie();
+    getTopRatedMovie();
+    getPopularMovie();
+  }, []);
+
+  const getTrendingMovie = async () => {
+    const data = await fetchTrendingMovie();
+    setTrending(data.results);
+  };
+
+  const getUpcomingMovie = async () => {
+    const data = await fetchUpcomingMovie();
+    setUpcoming(data.results);
+  };
+
+  const getTopRatedMovie = async () => {
+    const data = await fetchTopRatedMovie();
+    setTopRated(data.results);
+  };
+
+  const getPopularMovie = async () => {
+    const data = await fetchPopularMovie();
+    setPopular(data.results);
+  };
+
   return (
     <View className="flex-1 bg-slate-950">
       <SafeAreaView>
         <StatusBar style="light" />
-        <View className="mx-4 flex-row items-center justify-between">
+        <View className="mx-4 flex-row items-center justify-between pb-8">
           <Image source={require('~assets/logo.png')} />
           <MagnifyingGlassIcon color={'white'} width={24} height={24} strokeWidth={2} />
         </View>
@@ -16,7 +57,15 @@ export default function Home({ navigation }: any) {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 20 }}></ScrollView>
+        contentContainerStyle={{ paddingBottom: 20 }}>
+        {trending.length > 0 && <TrendingMovie trending={trending} />}
+        {upcoming.length > 0 && <UpcomingMovie upcoming={upcoming} title="Upcoming Movie" />}
+        {upcoming.length > 0 && (
+          <UpcomingMovie upcoming={trending.reverse()} title="Trending Movie" />
+        )}
+        {popular.length > 0 && <UpcomingMovie upcoming={popular} title="Popular Movie" />}
+        {topRated.length > 0 && <TrendingMovie trending={topRated} />}
+      </ScrollView>
     </View>
   );
 }
