@@ -1,5 +1,5 @@
-import Detailed from '@/screens/detailed';
 import Home from '@/screens/home';
+import Detailed from '@/screens/movie';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
