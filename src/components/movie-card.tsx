@@ -8,7 +8,7 @@ const { width, height } = Dimensions.get('window');
 export default function MovieCard({ item }: any) {
   const navigation = useNavigation();
   return (
-    <TouchableWithoutFeedback onPress={() => navigation.navigate('Movie', item)}>
+    <TouchableWithoutFeedback onPress={() => navigation.navigate('Movie', item.id)}>
       <Image
         source={{ uri: image500(item.poster_path) }}
         style={{ width: '100%', height: height * 0.7 }}

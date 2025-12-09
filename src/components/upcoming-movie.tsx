@@ -17,7 +17,7 @@ export default function UpcomingMovie({ upcoming, title }: { upcoming: any; titl
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 15 }}>
         {upcoming.map((item: any, idx: number) => (
-          <TouchableWithoutFeedback key={idx} onPress={() => navigation.navigate('Movie', item)}>
+          <TouchableWithoutFeedback key={idx} onPress={() => navigation.navigate('Movie', item.id)}>
             <View className="mr-4 space-y-1">
               <Image
                 source={{ uri: image185(item.poster_path) }}
