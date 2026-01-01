@@ -1,7 +1,10 @@
 import { image185 } from "@/api";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Cast({ cast }: any) {
+    const navigation = useNavigation();
+
     return (
         <View className="my-6">
             <Text className="text-white text-lg mx-4 mb-5">Actors</Text>
@@ -11,7 +14,7 @@ export default function Cast({ cast }: any) {
                 }}>
                 {
                     cast.map((person: any, idx: number) => (
-                        <TouchableOpacity key={idx} className="mr-4 items-center mb-6">
+                        <TouchableOpacity key={idx} className="mr-4 items-center mb-6" onPress={() => navigation.navigate('Person', { id: person?.id })}>
                             <View className="overflow-hidden rounded-full h-20 w-20 items-center border border-neutral-500">
                                 <Image className="rounded-2xl h-24 w-24" source={{ uri: image185(person?.profile_path) }} />
                             </View>
