@@ -1,5 +1,7 @@
 import { fetchMovieCredits, fetchMovieDetail, fetchSimilarMovie, image500 } from '@/api';
+import Cast from '@/components/cast';
 import Loader from '@/components/loader';
+import UpcomingMovie from '@/components/upcoming-movie';
 import { ChevronLeftIcon, HeartIcon } from '@react-native-icons/heroicons/24/solid';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -30,7 +32,6 @@ export default function Movie() {
     setMovie(data);
   };
 
-  console.log('movie', movie);
 
   const getMovieCredits = async () => {
     const data = await fetchMovieCredits(id as string);
@@ -105,6 +106,13 @@ export default function Movie() {
 
         <Text className="mx-4 mt-3 text-base tracking-wide text-neutral-400">{movie.overview}</Text>
       </View>
+
+      {
+        movie.id && cast?.length > 0 && <Cast cast={cast} />
+      }
+      {
+        movie.id && similarMovie?.length > 0 && <UpcomingMovie upcoming={similarMovie} title="Similar Movies" />
+      }
     </ScrollView>
   );
 }

@@ -8,7 +8,7 @@ const upComingMovie: string = `${baseUrl}/movie/upcoming?api_key=${api_key}`;
 const topRatedMovie: string = `${baseUrl}/movie/top_rated?api_key=${api_key}`;
 const popularMovie: string = `${baseUrl}/movie/popular?api_key=${api_key}`;
 const movieDetail = (id: string) => `${baseUrl}/movie/${id}?api_key=${api_key}`;
-const movieCredits = (id: string) => `${baseUrl}/movie/${id}/credites?api_key=${api_key}`;
+const movieCredits = (id: string) => `${baseUrl}/movie/${id}/credits?api_key=${api_key}`;
 const similarMovie = (id: string) => `${baseUrl}/movie/${id}/similar?api_key=${api_key}`;
 
 export const fetchTrendingMovie = () => {
