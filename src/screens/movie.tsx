@@ -4,7 +4,7 @@ import { ChevronLeftIcon, HeartIcon } from '@react-native-icons/heroicons/24/sol
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useState } from 'react';
-import { Dimensions, Image, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
@@ -83,6 +83,27 @@ export default function Movie() {
             />
           </View>
         )}
+      </View>
+
+      <View className="gap-4 space-y-4" style={{ marginTop: -40 }}>
+        <Text className="text-center text-3xl font-bold tracking-widest text-white">
+          {movie?.title}
+        </Text>
+        {movie?.id ? (
+          <Text className="text-center text-base font-semibold text-neutral-400">
+            {movie?.status} • {movie?.release_date?.split('-')[0]} • {movie.runtime} min
+          </Text>
+        ) : null}
+
+        <View className="mx-4 flex-row justify-center space-x-2">
+          {movie?.genres?.map((genre, idx) => (
+            <Text key={idx} className="text-center text-base font-semibold text-neutral-400">
+              {genre.name} {idx + 1 !== movie.genres.length ? '• ' : null}
+            </Text>
+          ))}
+        </View>
+
+        <Text className="mx-4 mt-3 text-base tracking-wide text-neutral-400">{movie.overview}</Text>
       </View>
     </ScrollView>
   );
