@@ -44,7 +44,7 @@ export default function Movie() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ paddingBottom: 20 }} className="flex-1 bg-slate-950">
+    <ScrollView contentContainerStyle={{ paddingBottom: 20 }} className="flex-1">
       <View className="w-full">
         <SafeAreaView className="absolute z-20 w-full flex-row items-center justify-between px-4">
           <TouchableOpacity onPress={() => navigation.goBack()}>

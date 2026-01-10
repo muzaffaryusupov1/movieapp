@@ -22,11 +22,8 @@ export default function UpcomingMovie({ upcoming, title }: { upcoming: any; titl
               <Image
                 source={{ uri: image185(item.poster_path) }}
                 className="rounded-3xl"
-                style={{ width: width * 0.3, height: height * 0.2 }}
+                style={{ width: width * 0.3, height: height * 0.25 }}
               />
-              <Text className="text-white">
-                {item.title.length > 12 ? item.title.slice(0, 12) + '...' : item.title}
-              </Text>
             </View>
           </TouchableWithoutFeedback>
         ))}

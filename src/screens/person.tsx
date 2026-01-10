@@ -35,7 +35,7 @@ export default function Person() {
     }
 
     return (
-        <ScrollView className="flex-1 bg-slate-900" contentContainerStyle={{ paddingBottom: 20 }}>
+        <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 20 }}>
             <SafeAreaView className="absolute z-20 w-full flex-row items-center justify-between px-4">
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <ChevronLeftIcon color={'white'} width={30} height={30} strokeWidth={2.5} />

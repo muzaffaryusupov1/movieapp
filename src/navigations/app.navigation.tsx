@@ -2,14 +2,14 @@ import Home from '@/screens/home';
 import Movie from '@/screens/movie';
 import Person from '@/screens/person';
 import Search from '@/screens/search';
-import { NavigationContainer } from '@react-navigation/native';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={DarkTheme}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Movie" component={Movie} options={{ headerShown: false }} />

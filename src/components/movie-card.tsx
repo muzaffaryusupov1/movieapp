@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 
 export default function MovieCard({ item }: any) {
   const navigation = useNavigation();
@@ -11,8 +11,12 @@ export default function MovieCard({ item }: any) {
     <TouchableWithoutFeedback onPress={() => navigation.navigate('Movie', item.id)}>
       <Image
         source={{ uri: image500(item.poster_path) }}
-        style={{ width: '100%', height: height * 0.7 }}
+        style={{
+          width: '100%',
+          height: height * 0.4,
+        }}
         className="rounded-3xl"
+        resizeMode="cover"
       />
     </TouchableWithoutFeedback>
   );

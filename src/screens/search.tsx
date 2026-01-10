@@ -37,7 +37,7 @@ export default function Search() {
     const handleTextDebounce = useCallback(debounce(handleSearch, 400), [])
 
     return (
-        <SafeAreaView className="flex-1 bg-slate-950">
+        <SafeAreaView className="flex-1">
             <View className="mx-4 mb-3 flex-row items-center justify-between border border-neutral-400 rounded-full">
                 <TextInput onChangeText={handleTextDebounce} placeholder="Search" placeholderTextColor={'lightgray'} className="pl-6 flex-1 text-base font-semibold text-white tracking-wide" />
                 <TouchableOpacity className="rounded-full p-3 m-1 bg-neutral-400" onPress={() => navigation.goBack()}>

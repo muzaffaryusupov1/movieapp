@@ -11,23 +11,26 @@ interface TrendingMovieProps {
 
 export default function TrendingMovie({ trending }: TrendingMovieProps) {
   return (
-    <View className="mb-5">
+    <View className="flex-1 items-center">
       <Carousel
-        height={height * 0.7}
+        width={width}
+        height={height * 0.4}
         data={trending}
         renderItem={({ item }) => <MovieCard item={item} />}
         loop={true}
-        pagingEnabled={true}
-        snapEnabled={true}
-        width={width}
-        style={{
-          width: width,
-        }}
+        autoPlay={true}
+        autoPlayInterval={4000}
+        scrollAnimationDuration={1000}
         mode="parallax"
         modeConfig={{
           parallaxScrollingScale: 0.9,
           parallaxScrollingOffset: 50,
         }}
+        style={{
+          width: width,
+          height: height * 0.4,
+        }}
+        vertical={false}
       />
     </View>
   );
