@@ -10,7 +10,7 @@ import UpcomingMovie from '@/components/upcoming-movie';
 import { MagnifyingGlassIcon } from '@react-native-icons/heroicons/16/solid';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Home({ navigation }: any) {
@@ -57,7 +57,9 @@ export default function Home({ navigation }: any) {
         <StatusBar style="light" />
         <View className="mx-4 flex-row items-center justify-between pb-8">
           <Image source={require('~assets/logo.png')} />
-          <MagnifyingGlassIcon color={'white'} width={24} height={24} strokeWidth={2} />
+          <TouchableOpacity onPress={() => navigation.navigate('Search')}>
+            <MagnifyingGlassIcon color={'white'} width={24} height={24} strokeWidth={2} />
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
 
