@@ -83,13 +83,13 @@ export default function Person() {
                         </View>
                         <View className="border-r-2 border-r-slate-500 px-2 items-center">
                             <Text className="text-white font-semibold">Popularity</Text>
-                            <Text className="text-neutral-400 text-sm">{person?.popularity.toFixed(2)}%</Text>
+                            <Text className="text-neutral-400 text-sm">{person?.popularity?.toFixed(2)}%</Text>
                         </View>
                     </View>
 
                     <View className="my-6 mx-4 space-y-2">
                         <Text className="text-white font-semibold text-xl">Biography</Text>
-                        <Text className="text-neutral-400 text-sm tracking-wide">{person?.biography}</Text>
+                        <Text className="text-neutral-400 text-sm tracking-wide" numberOfLines={1}>{person?.biography}</Text>
                     </View>
                     {person.id && personMovies?.length > 0 && <UpcomingMovie upcoming={personMovies} title="Known For" />}
                 </View>

@@ -7,6 +7,7 @@ const trendingMovie: string = `${baseUrl}/trending/movie/day?api_key=${api_key}`
 const upComingMovie: string = `${baseUrl}/movie/upcoming?api_key=${api_key}`;
 const topRatedMovie: string = `${baseUrl}/movie/top_rated?api_key=${api_key}`;
 const popularMovie: string = `${baseUrl}/movie/popular?api_key=${api_key}`;
+const nowPlayingMovie: string = `${baseUrl}/movie/now_playing?api_key=${api_key}`;
 const searchMovie: string = `${baseUrl}/search/movie?api_key=${api_key}`;
 
 const movieDetail = (id: string) => `${baseUrl}/movie/${id}?api_key=${api_key}`;
@@ -29,6 +30,10 @@ export const fetchTopRatedMovie = () => {
 
 export const fetchPopularMovie = () => {
   return apiRequest(popularMovie);
+};
+
+export const fetchNowPlayingMovie = () => {
+  return apiRequest(nowPlayingMovie);
 };
 
 export const fetchMovieDetail = (id: string) => {
